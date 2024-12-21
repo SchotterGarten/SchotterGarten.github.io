@@ -36,7 +36,7 @@ for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
-    event.preventDefault()
+    //event.preventDefault()
 
     nb_touches = event.touches
       is_multitouch = false
@@ -51,7 +51,7 @@ for (i = 0; i < images.length; i++) {
     event.preventDefault()
 
     if(true) {
-      event.preventDefault()
+      //event.preventDefault()
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
       handleGestureOnImage();
