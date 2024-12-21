@@ -34,7 +34,7 @@ for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
-    if(event.touches.length > 1) {
+    if(event.touches.length < 2) {
       event.preventDefault()
       touchstartX = event.changedTouches[0].screenX;
       touchstartY = event.changedTouches[0].screenY;
@@ -42,8 +42,8 @@ for (i = 0; i < images.length; i++) {
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
-    if(event.touches.length > 1) {
-    event.preventDefault()
+    if(event.touches.length < 2) {
+      event.preventDefault()
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
       handleGestureOnImage();
