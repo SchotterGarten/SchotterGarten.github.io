@@ -47,7 +47,7 @@ for (i = 0; i < images.length; i++) {
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
       
-    handleGestureOnImage();
+    handleGestureOnImage(event);
 
 
   }, { passive: false });
@@ -66,7 +66,7 @@ for (i = 0; i < images.length; i++) {
   
     touchendX = event.screenX;
     touchendY = event.screenY;
-    handleGestureOnImage();
+    handleGestureOnImage(event);
   }, { passive: false });
 } 
 
@@ -86,7 +86,7 @@ function imageClick () {
 
 swipe_factor = 0.75
 
-function handleGestureOnImage() {
+function handleGestureOnImage (event) {
   screen_width = window.screen.width
 
   if (nb_touches == 1){ 
@@ -102,7 +102,15 @@ function handleGestureOnImage() {
         }
     }
     else {
-      imageClick();
+      if (event.target.id=="prev") {
+        plusSlides(-1)
+      }
+      else if (event.target.id=="next"){
+        plusSlides(1)
+      }
+      else{
+        imageClick();
+      }
     }
    }
 }
