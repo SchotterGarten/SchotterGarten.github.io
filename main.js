@@ -48,10 +48,9 @@ for (i = 0; i < images.length; i++) {
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
-    event.preventDefault()
+    //event.preventDefault()
 
     if(true) {
-      //event.preventDefault()
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
       handleGestureOnImage();
