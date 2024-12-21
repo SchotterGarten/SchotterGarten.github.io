@@ -99,7 +99,7 @@ function handleGestureOnImage() {
       //console.log('Swiped Down');
   }
 
-  if (touchendX === touchstartX) {
+  if (touchendX == touchstartX) {
     imageClick();
   }
 }
