@@ -46,8 +46,10 @@ for (i = 0; i < images.length; i++) {
 
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
-      
-    if (touchendX != touchstartX){
+    
+    console.log(touchstartX, touchendX)
+    console.log(touchendX != touchstartX)
+    if (touchendX != touchstartX) {
       handleGestureOnImage(event);
     }
   }, { passive: false });
