@@ -34,7 +34,7 @@ for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
-    event.preventDefault()
+    //event.preventDefault()
     touchstartX = event.changedTouches[0].screenX;
     touchstartY = event.changedTouches[0].screenY;
   }, { passive: false });
