@@ -37,6 +37,8 @@ for (i = 0; i < images.length; i++) {
   images[i].addEventListener('touchstart', function (event) {
     //event.preventDefault()
 
+    nb_touches = event.touches.length 
+
     touchstartX = event.changedTouches[0].screenX;
     touchstartY = event.changedTouches[0].screenY;
 
@@ -47,18 +49,24 @@ for (i = 0; i < images.length; i++) {
 
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
+      
     handleGestureOnImage();
-    
+
+
   }, { passive: false });
 
   images[i].addEventListener('mousedown', function (event) {
     event.preventDefault()
+    
+    nb_touches = 1 
+
     touchstartX = event.screenX;
     touchstartY = event.screenY;
   }, { passive: false });
   
   images[i].addEventListener('mouseup', function (event) {
     event.preventDefault()
+  
     touchendX = event.screenX;
     touchendY = event.screenY;
     handleGestureOnImage();
@@ -84,31 +92,33 @@ swipe_factor = 0.3
 function handleGestureOnImage() {
   screen_width = window.screen.width
 
-  if (touchendX < touchstartX) {
-      //console.log('Left');
-      if (touchstartX-touchendX >= swipe_factor*screen_width) {
-        //console.log('Swiped Left')
-        plusSlides(1)
-      }
-  }
+  if (nb_touches == 1){ 
+    if (touchendX < touchstartX) {
+        //console.log('Left');
+        if (touchstartX-touchendX >= swipe_factor*screen_width) {
+          //console.log('Swiped Left')
+          plusSlides(1)
+        }
+    }
 
-  if (touchendX > touchstartX) {
-      //console.log('Swiped Right');
-      if (touchendX-touchstartX >= swipe_factor*screen_width) {
-        //console.log('Swiped Left')
-        plusSlides(-1)
-      }
-  }
+    if (touchendX > touchstartX) {
+        //console.log('Swiped Right');
+        if (touchendX-touchstartX >= swipe_factor*screen_width) {
+          //console.log('Swiped Left')
+          plusSlides(-1)
+        }
+    }
 
-  if (touchendY < touchstartY) {
-      //console.log('Swiped Up');
-  }
+    if (touchendY < touchstartY) {
+        //console.log('Swiped Up');
+    }
 
-  if (touchendY > touchstartY) {
-      //console.log('Swiped Down');
-  }
+    if (touchendY > touchstartY) {
+        //console.log('Swiped Down');
+    }
 
-  if (touchendX == touchstartX) {
-    imageClick();
+    if (touchendX == touchstartX) {
+      imageClick();
+   }
   }
 }
