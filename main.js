@@ -29,11 +29,16 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 } 
 
+let images = document.getElementsByClassName("image")
+for (i = 0; i < images.length; i++) {
+  images[i].onclick = imageClick;
+  images[i].ontouchend = imageClick;
+} 
+
 function imageClick () {
   let prev = document.getElementById('prev')
   let next = document.getElementById('next')
 
-  console.log(prev.style.visibility)
   if (prev.style.visibility == "visible"){
     prev.style.visibility = "hidden"
     next.style.visibility = "hidden"
@@ -42,5 +47,4 @@ function imageClick () {
     prev.style.visibility = "visible"
     next.style.visibility = "visible"
   }
-
 }
