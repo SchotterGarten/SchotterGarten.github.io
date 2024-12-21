@@ -12,7 +12,7 @@
         <div class="caption-container">
             <p id="caption"></p>
         </div>
-        
+
          <!-- Container for the image gallery -->
         <div class="container">
 
@@ -152,10 +152,23 @@
 
             </div>
         </div> 
+        
+        <div style="display: flex;">
+            <div style="flex-grow: 1">
+                <hr>
+            </div>
+            <div id="language_selector">
+                <button class="lang-button" type="button" value="DE">DE</button> 
+                <button class="lang-button" type="button" value="EN">EN</button> 
+                <button class="lang-button" type="button"value="FR" >FR</button> 
+            </div>
+        </div>
 
-        <hr>
+        <div id="information" style="width: 100%; text-align: justify"></div>
 
-        <div style="width: 100%; text-align: justify">
+
+
+        <div id="DE" style="display: none">
             Liebe Gäste des Chalet Sonnenfreude<br><br>
 
             Bedauerlicherweise gibt es Probleme mit der Schneeräumung und Sicherheit auf der Hauszufahrt. Weil mein Garten jeden Winter von der Schnee­fräse mit 
@@ -166,9 +179,9 @@
 
             Ich danke für Ihr Verständnis und bedaure die Umstände, mit freundlichen Grüssen,<br>
             Urs Lauper<br><br><br>
+        </div>
 
-            <hr>
-
+        <div id="EN" style="display: none">
             Dear guests of Chalet Sonnenfreude<br><br>
 
             Unfortunately, there are problems with snowblowing and safety on the driveway. Because my garden is covered in gravel by the snow blower every winter 
@@ -179,9 +192,9 @@
 
             I thank you for your understanding and regret the inconvenience, kind regards,<br>
             Urs Lauper<br><br><br>
+    </div>
 
-            <hr>
-
+    <div id="FR" style="display: none">
             Chers hôtes du Chalet Sonnenfreude<br><br>
 
             Malheureusement, il y a des problèmes de déneigement et de sécurité dans l'entrée. Parce que mon jardin est recouvert de gravier chaque hiver par la souffleuse 

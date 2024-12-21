@@ -124,3 +124,27 @@ function handleGestureOnImage() {
    }
   }
 }
+
+
+function setTextLanguage (language) {
+
+  document.getElementById("information").innerHTML = document.getElementById(language).innerHTML
+}
+
+setTextLanguage("DE")
+
+function buttonSetTextLanguage (event){
+  console.log(event.textContent)
+  language = event.value
+  setTextLanguage(language)
+}
+
+var langButtons = document.getElementsByClassName("lang-button")
+
+for (i = 0; i < langButtons.length; i++) {
+  langButtons[i].addEventListener('click', function (event) {
+
+    setTextLanguage(event.target.textContent)
+    
+  }, );
+}
