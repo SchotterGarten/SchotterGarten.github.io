@@ -29,7 +29,7 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 } 
 
-let images = document.getElementsByClassName("image")
+let images = document.getElementsByClassName("container")
 
 for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
@@ -87,36 +87,28 @@ function imageClick () {
   }
 }
 
-swipe_factor = 0.8
+swipe_factor = 0.75
 
 function handleGestureOnImage() {
   screen_width = window.screen.width
 
-  console.log(nb_touches)
-
   if (nb_touches == 1){ 
     if (touchendX < touchstartX) {
-        //console.log('Left');
         if (touchstartX-touchendX >= swipe_factor*screen_width) {
-          //console.log('Swiped Left')
           plusSlides(1)
         }
     }
 
     if (touchendX > touchstartX) {
-        //console.log('Swiped Right');
         if (touchendX-touchstartX >= swipe_factor*screen_width) {
-          //console.log('Swiped Left')
           plusSlides(-1)
         }
     }
 
     if (touchendY < touchstartY) {
-        //console.log('Swiped Up');
     }
 
     if (touchendY > touchstartY) {
-        //console.log('Swiped Down');
     }
 
     if (touchendX == touchstartX) {
