@@ -32,10 +32,8 @@ function showSlides(n) {
 let images = document.getElementsByClassName("container")
 
 for (i = 0; i < images.length; i++) {
-  //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
-    //event.preventDefault()
 
     nb_touches = event.touches.length 
 
@@ -45,7 +43,6 @@ for (i = 0; i < images.length; i++) {
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
-    //event.preventDefault()
 
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
@@ -99,22 +96,15 @@ function handleGestureOnImage() {
         }
     }
 
-    if (touchendX > touchstartX) {
+    else if (touchendX > touchstartX) {
         if (touchendX-touchstartX >= swipe_factor*screen_width) {
           plusSlides(-1)
         }
     }
-
-    if (touchendY < touchstartY) {
-    }
-
-    if (touchendY > touchstartY) {
-    }
-
-    if (touchendX == touchstartX) {
+    else {
       imageClick();
+    }
    }
-  }
 }
 
 
