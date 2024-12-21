@@ -37,27 +37,27 @@ for (i = 0; i < images.length; i++) {
     event.preventDefault()
     touchstartX = event.changedTouches[0].screenX;
     touchstartY = event.changedTouches[0].screenY;
-  }, false);
+  }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
     event.preventDefault()
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
     handleGestureOnImage();
-  }, false);
+  }, { passive: false });
 
   images[i].addEventListener('mousedown', function (event) {
     event.preventDefault()
     touchstartX = event.screenX;
     touchstartY = event.screenY;
-  }, false);
+  }, { passive: false });
   
   images[i].addEventListener('mouseup', function (event) {
     event.preventDefault()
     touchendX = event.screenX;
     touchendY = event.screenY;
     handleGestureOnImage();
-  }, false);
+  }, { passive: false });
 } 
 
 function imageClick () {
@@ -90,7 +90,7 @@ function handleGestureOnImage() {
   if (touchendX > touchstartX) {
       console.log('Swiped Right');
       if (touchendX-touchstartX >= swipe_factor*screen_width) {
-        console.log('Swiped Left')
+        //console.log('Swiped Left')
         plusSlides(-1)
       }
   }
