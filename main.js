@@ -92,6 +92,8 @@ swipe_factor = 0.3
 function handleGestureOnImage() {
   screen_width = window.screen.width
 
+  console.log(nb_touches)
+
   if (nb_touches == 1){ 
     if (touchendX < touchstartX) {
         //console.log('Left');
