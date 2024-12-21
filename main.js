@@ -43,7 +43,7 @@ for (i = 0; i < images.length; i++) {
       is_multitouch = true
     }
 
-    if (!is_multitouch) {
+    if (is_multitouch==false) {
       event.preventDefault()
       touchstartX = event.changedTouches[0].screenX;
       touchstartY = event.changedTouches[0].screenY;
@@ -51,7 +51,7 @@ for (i = 0; i < images.length; i++) {
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
-    if(!is_multitouch) {
+    if(is_multitouch==false) {
       event.preventDefault()
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
