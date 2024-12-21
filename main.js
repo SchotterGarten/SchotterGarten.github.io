@@ -30,11 +30,20 @@ function showSlides(n) {
 } 
 
 let images = document.getElementsByClassName("image")
+let is_multitouch = false
+
 for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
-    if(event.touches.length < 2) {
+    if(event.touches.length == 1) {
+      is_multitouch = false
+    }
+    else {
+      is_multitouch = true
+    }
+
+    if (!is_multitouch) {
       event.preventDefault()
       touchstartX = event.changedTouches[0].screenX;
       touchstartY = event.changedTouches[0].screenY;
@@ -42,7 +51,7 @@ for (i = 0; i < images.length; i++) {
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
-    if(event.touches.length < 2) {
+    if(!is_multitouch) {
       event.preventDefault()
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
@@ -78,7 +87,7 @@ function imageClick () {
   }
 }
 
-swipe_factor = 0.2
+swipe_factor = 0.3
 
 function handleGestureOnImage() {
   screen_width = window.screen.width
