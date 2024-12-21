@@ -85,7 +85,7 @@ function imageClick () {
   }
 }
 
-swipe_factor = 0.75
+swipe_factor = 0.5
 
 function handleGestureOnImage (event) {
   screen_width = window.screen.width
