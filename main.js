@@ -47,9 +47,9 @@ for (i = 0; i < images.length; i++) {
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
       
-    handleGestureOnImage(event);
-
-
+    if (touchendX != touchstartX){
+      handleGestureOnImage(event);
+    }
   }, { passive: false });
 
   images[i].addEventListener('mousedown', function (event) {
@@ -66,6 +66,7 @@ for (i = 0; i < images.length; i++) {
   
     touchendX = event.screenX;
     touchendY = event.screenY;
+
     handleGestureOnImage(event);
   }, { passive: false });
 } 
