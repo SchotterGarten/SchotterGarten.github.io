@@ -31,8 +31,29 @@ function showSlides(n) {
 
 let images = document.getElementsByClassName("image")
 for (i = 0; i < images.length; i++) {
-  images[i].onclick = imageClick;
-  images[i].ontouchend = imageClick;
+  //images[i].onclick = imageClick;
+
+  images[i].addEventListener('touchstart', function (event) {
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
+  }, false);
+  
+  images[i].addEventListener('touchend', function (event) {
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGestureOnImage();
+  }, false);
+
+  images[i].addEventListener('mousedown', function (event) {
+    touchstartX = event.screenX;
+    touchstartY = event.screenY;
+  }, false);
+  
+  images[i].addEventListener('mouseup', function (event) {
+    touchendX = event.screenX;
+    touchendY = event.screenY;
+    handleGestureOnImage();
+  }, false);
 } 
 
 function imageClick () {
@@ -46,5 +67,39 @@ function imageClick () {
   else if (prev.style.visibility == "hidden") {
     prev.style.visibility = "visible"
     next.style.visibility = "visible"
+  }
+}
+
+swipe_factor = 0.2
+
+function handleGestureOnImage() {
+  screen_width = window.screen.width
+
+  if (touchendX < touchstartX) {
+      //console.log('Left');
+      if (touchstartX-touchendX >= swipe_factor*screen_width) {
+        //console.log('Swiped Left')
+        plusSlides(1)
+      }
+  }
+
+  if (touchendX > touchstartX) {
+      console.log('Swiped Right');
+      if (touchendX-touchstartX >= swipe_factor*screen_width) {
+        console.log('Swiped Left')
+        plusSlides(-1)
+      }
+  }
+
+  if (touchendY < touchstartY) {
+      //console.log('Swiped Up');
+  }
+
+  if (touchendY > touchstartY) {
+      //console.log('Swiped Down');
+  }
+
+  if (touchendX === touchstartX) {
+    imageClick();
   }
 }
