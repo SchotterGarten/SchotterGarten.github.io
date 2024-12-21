@@ -16,8 +16,8 @@ function showSlides(n) {
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("demo");
   let captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) {slideIndex = slides.length}//1}
+  if (n < 1) {slideIndex = 1}//slides.length}
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
