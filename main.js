@@ -30,7 +30,6 @@ function showSlides(n) {
 } 
 
 let images = document.getElementsByClassName("image")
-let nb_touches = 0
 
 for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
@@ -38,23 +37,18 @@ for (i = 0; i < images.length; i++) {
   images[i].addEventListener('touchstart', function (event) {
     //event.preventDefault()
 
-    nb_touches = event.touches
-      is_multitouch = false
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
 
-    if (true) {
-      touchstartX = event.changedTouches[0].screenX;
-      touchstartY = event.changedTouches[0].screenY;
-    }
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
     //event.preventDefault()
 
-    if(true) {
-      touchendX = event.changedTouches[0].screenX;
-      touchendY = event.changedTouches[0].screenY;
-      handleGestureOnImage();
-    }
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGestureOnImage();
+    
   }, { passive: false });
 
   images[i].addEventListener('mousedown', function (event) {
@@ -99,7 +93,7 @@ function handleGestureOnImage() {
   }
 
   if (touchendX > touchstartX) {
-      console.log('Swiped Right');
+      //console.log('Swiped Right');
       if (touchendX-touchstartX >= swipe_factor*screen_width) {
         //console.log('Swiped Left')
         plusSlides(-1)
