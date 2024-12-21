@@ -5,8 +5,6 @@ showSlides(slideIndex);
 // Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
-  document.getElementById("prev").style.backgroundColor = rgba(0, 0, 0, 0.3)
-  document.getElementById("next").style.backgroundColor = rgba(0, 0, 0, 0.3)
 }
 
 // Thumbnail image controls
@@ -30,6 +28,9 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
+
+  document.getElementById("prev").style.backgroundColor = rgba(0, 0, 0, 0.3)
+  document.getElementById("next").style.backgroundColor = rgba(0, 0, 0, 0.3)
 } 
 
 let slideContainer = document.getElementById("slide-container")
