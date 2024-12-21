@@ -15,7 +15,6 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  console.log(prevnext_visibility)
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("demo");
