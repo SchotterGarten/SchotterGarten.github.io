@@ -1,9 +1,12 @@
 let slideIndex = 1;
+
 showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
+  document.getElementById("prev").style.backgroundColor = rgba(0, 0, 0, 0.3)
+  document.getElementById("next").style.backgroundColor = rgba(0, 0, 0, 0.3)
 }
 
 // Thumbnail image controls
@@ -12,6 +15,7 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
+  console.log(prevnext_visibility)
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("demo");
@@ -29,12 +33,9 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 } 
 
-let images = document.getElementsByClassName("container")
+let slideContainer = document.getElementById("slide-container")
 
-for (i = 0; i < images.length; i++) {
-
-  images[i].addEventListener('touchstart', function (event) {
-
+slideContainer.addEventListener('touchstart', function (event) {
     nb_touches = event.touches.length 
 
     touchstartX = event.changedTouches[0].screenX;
@@ -42,19 +43,17 @@ for (i = 0; i < images.length; i++) {
 
   }, { passive: false });
   
-  images[i].addEventListener('touchend', function (event) {
+slideContainer.addEventListener('touchend', function (event) {
 
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
     
-    console.log(touchstartX, touchendX)
-    console.log(touchendX != touchstartX)
     if (touchendX != touchstartX) {
       handleGestureOnImage(event);
     }
   }, { passive: false });
 
-  images[i].addEventListener('mousedown', function (event) {
+slideContainer.addEventListener('mousedown', function (event) {
     event.preventDefault()
     
     nb_touches = 1 
@@ -63,7 +62,7 @@ for (i = 0; i < images.length; i++) {
     touchstartY = event.screenY;
   }, { passive: false });
   
-  images[i].addEventListener('mouseup', function (event) {
+slideContainer.addEventListener('mouseup', function (event) {
     event.preventDefault()
   
     touchendX = event.screenX;
@@ -71,7 +70,7 @@ for (i = 0; i < images.length; i++) {
 
     handleGestureOnImage(event);
   }, { passive: false });
-} 
+
 
 function imageClick () {
   let prev = document.getElementById('prev')
