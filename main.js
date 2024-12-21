@@ -30,28 +30,27 @@ function showSlides(n) {
 } 
 
 let images = document.getElementsByClassName("image")
-let is_multitouch = false
+let nb_touches = 0
 
 for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
-    if(event.touches.length == 1) {
-      is_multitouch = false
-    }
-    else {
-      is_multitouch = true
-    }
+    event.preventDefault()
 
-    if (is_multitouch==false) {
-      event.preventDefault()
+    nb_touches = event.touches
+      is_multitouch = false
+
+    if (true) {
       touchstartX = event.changedTouches[0].screenX;
       touchstartY = event.changedTouches[0].screenY;
     }
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
-    if(is_multitouch==false) {
+    event.preventDefault()
+
+    if(true) {
       event.preventDefault()
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;

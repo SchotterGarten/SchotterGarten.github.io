@@ -11,6 +11,10 @@
   .mySlides {
     display: none;
   }
+
+  .image {
+    touch-action: pinch-zoom pan-x pan-y pan-up pan-down;
+  }
   
   /* Add a pointer when hovering over the thumbnail images */
   .cursor {
@@ -85,3 +89,4 @@
   .demo:hover {
     opacity: 1;
   }
+
