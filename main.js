@@ -34,22 +34,26 @@ for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
+    event.preventDefault()
     touchstartX = event.changedTouches[0].screenX;
     touchstartY = event.changedTouches[0].screenY;
   }, false);
   
   images[i].addEventListener('touchend', function (event) {
+    event.preventDefault()
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
     handleGestureOnImage();
   }, false);
 
   images[i].addEventListener('mousedown', function (event) {
+    event.preventDefault()
     touchstartX = event.screenX;
     touchstartY = event.screenY;
   }, false);
   
   images[i].addEventListener('mouseup', function (event) {
+    event.preventDefault()
     touchendX = event.screenX;
     touchendY = event.screenY;
     handleGestureOnImage();
