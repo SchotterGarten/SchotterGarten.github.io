@@ -28,3 +28,19 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
 } 
+
+function imageClick () {
+  let prev = document.getElementById('prev')
+  let next = document.getElementById('next')
+
+  console.log(prev.style.visibility)
+  if (prev.style.visibility == "visible"){
+    prev.style.visibility = "hidden"
+    next.style.visibility = "hidden"
+  }
+  else if (prev.style.visibility == "hidden") {
+    prev.style.visibility = "visible"
+    next.style.visibility = "visible"
+  }
+
+}
