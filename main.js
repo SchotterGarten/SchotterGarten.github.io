@@ -34,16 +34,20 @@ for (i = 0; i < images.length; i++) {
   //images[i].onclick = imageClick;
 
   images[i].addEventListener('touchstart', function (event) {
-    //event.preventDefault()
-    touchstartX = event.changedTouches[0].screenX;
-    touchstartY = event.changedTouches[0].screenY;
+    if(event.touches.length > 1) {
+      event.preventDefault()
+      touchstartX = event.changedTouches[0].screenX;
+      touchstartY = event.changedTouches[0].screenY;
+    }
   }, { passive: false });
   
   images[i].addEventListener('touchend', function (event) {
+    if(event.touches.length > 1) {
     event.preventDefault()
-    touchendX = event.changedTouches[0].screenX;
-    touchendY = event.changedTouches[0].screenY;
-    handleGestureOnImage();
+      touchendX = event.changedTouches[0].screenX;
+      touchendY = event.changedTouches[0].screenY;
+      handleGestureOnImage();
+    }
   }, { passive: false });
 
   images[i].addEventListener('mousedown', function (event) {
